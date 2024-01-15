@@ -10,13 +10,14 @@ class AddContact extends Component {
 
     Add = (e) => {
        
-        e.preventDefault();
+        e.preventDefault(); //prevent page refresh
         if(this.state.name === '' || this.state.mob === '' || this.state.email === ''){
             alert("All the fields are mandatory!.");
             return;
         }
         console.log("Contact details: ",this.state);
         this.props.addContactHandler(this.state);
+        
     }
 
     render() {
@@ -33,6 +34,7 @@ class AddContact extends Component {
                     <label className='form-label'>
                         Name :
                         <input className='form-control' 
+                        id='name'
                         type='text' 
                         placeholder='Enter Name' 
                         value={this.state.name}
@@ -43,6 +45,7 @@ class AddContact extends Component {
                     <label className='form-label'>
                         Mob Number :
                         <input className='form-control' 
+                        id='mob'
                         type='text' 
                         placeholder='Enter Mobile Number' 
                         value = {this.state.mob }
@@ -53,14 +56,16 @@ class AddContact extends Component {
                     <label className='form-label'>
                         Email :
                         <input className='form-control' 
+                        id='email'
                         type='email' 
                         placeholder='Enter email id' 
                         value = {this.state.email}
                         onChange = {(e)=>this.setState({email: e.target.value})}/>
                     </label>
                 </div>
+               
                 <div>
-                   
+                    
                         
                         <input className="btn btn-primary mb-3" 
                         type =  'submit' 

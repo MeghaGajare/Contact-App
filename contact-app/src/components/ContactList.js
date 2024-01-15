@@ -3,9 +3,11 @@ import ContactCard from "./ContactCard";
 
 export default function ContactList(props) {
     console.log(props);
-    const renderContactList = props.contacts.map(contact => {
+    
+    const renderContactList = props.contacts.map((contact,index) => {
         return (<>
-            <ContactCard contact = {contact}></ContactCard>
+            
+            <ContactCard key={index} contact = {contact}></ContactCard>
         </>)
     });
     return <>
@@ -13,7 +15,7 @@ export default function ContactList(props) {
             <div > My Contact List </div>
             {/* map() function: arrayData.map(item => item * 2); */}
             <hr />
-            {renderContactList}
+            {renderContactList }
         </div>
     </>
 }
